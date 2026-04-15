@@ -11,32 +11,32 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:       #060606;
-      --dark:        #0c0c0c;
-      --dark-card:   #141414;
-      --dark-border: #1e1e1e;
-      --gold:        #c8a440;
-      --gold-light:  #deba5a;
-      --gold-dark:   #a08030;
-      --white:       #f5f0e8;
-      --white-mid:   rgba(245,240,232,0.65);
-      --white-dim:   rgba(245,240,232,0.28);
-      --grid-dark:   rgba(245,240,232,0.03);
-      --grid-light:  rgba(6,6,6,0.07);
+      --black:      #060606;
+      --dark:       #0d0d0d;
+      --dark-card:  #151515;
+      --dark-border:#202020;
+      --gold:       #c8a440;
+      --gold-light: #deba5a;
+      --gold-dark:  #a08030;
+      --white:      #f5f0e8;
+      --white-mid:  rgba(245,240,232,0.65);
+      --white-dim:  rgba(245,240,232,0.28);
+      --gd:         rgba(245,240,232,0.03);  /* grid dark */
+      --gl:         rgba(6,6,6,0.07);        /* grid light */
     }
 
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
     /* GRID TEXTURES */
-    .grid-dark { background-image: linear-gradient(var(--grid-dark) 1px,transparent 1px),linear-gradient(90deg,var(--grid-dark) 1px,transparent 1px); background-size: 72px 72px; }
-    .grid-light { background-color: #eeeae0; background-image: linear-gradient(var(--grid-light) 1px,transparent 1px),linear-gradient(90deg,var(--grid-light) 1px,transparent 1px); background-size: 72px 72px; }
+    .grid-dark { background-image: linear-gradient(var(--gd) 1px,transparent 1px),linear-gradient(90deg,var(--gd) 1px,transparent 1px); background-size: 72px 72px; }
+    .grid-light { background-color: #eeeae0; background-image: linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px); background-size: 72px 72px; }
 
     /* BANNER */
     .outreach-banner {
-      background: linear-gradient(90deg, #1a1400, #2a2000, #1a1400);
+      background: linear-gradient(90deg,#1a1400,#242010,#1a1400);
       border-bottom: 2px solid var(--gold);
-      color: rgba(245,240,232,0.85);
+      color: rgba(245,240,232,0.88);
       padding: 10px 20px;
       display: flex; align-items: center; justify-content: center;
       gap: 16px; flex-wrap: wrap; font-size: 13px;
@@ -53,42 +53,46 @@
     /* NAV */
     .site-nav { position: sticky; top: 0; z-index: 900; background: rgba(6,6,6,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--dark-border); }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; line-height: 1; }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.14em; color: var(--gold); text-decoration: none; line-height: 1; }
     .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--white-mid); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-light); }
-    .nav-links .nav-cta a { background: var(--gold); color: var(--black); padding: 7px 18px; border-radius: 2px; transition: background 0.2s; }
+    .nav-links .nav-cta a { background: var(--gold); color: var(--black); padding: 7px 18px; border-radius: 2px; }
     .nav-links .nav-cta a:hover { background: var(--gold-light); }
     .nav-social { display: flex; gap: 16px; align-items: center; }
     .nav-social a { color: var(--white-dim); transition: color 0.2s; }
     .nav-social a:hover { color: var(--gold-light); }
     .nav-social svg { width: 16px; height: 16px; fill: currentColor; }
-
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 1px; transition: transform 0.3s,opacity 0.3s; transform-origin: center; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* HERO */
-    .hero { min-height: 92vh; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--black); }
-    .hero-bg-gradient {
-      position: absolute; inset: 0;
+    /* HERO — Washed Lord poster style */
+    .hero { min-height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; background: var(--black); }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse at 80% 50%, rgba(200,164,64,0.07) 0%, transparent 50%),
-        radial-gradient(ellipse at 15% 80%, rgba(200,164,64,0.05) 0%, transparent 45%),
-        radial-gradient(ellipse at 50% 10%, rgba(200,164,64,0.03) 0%, transparent 60%);
+        radial-gradient(ellipse at 75% 45%, rgba(200,164,64,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 70%, rgba(200,164,64,0.05) 0%, transparent 45%);
     }
-    /* removed img wrap/img/overlay — no broken PNG */
-    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; }
     .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
     .hero-eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
     .hero-eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
-    .hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 14vw, 160px); line-height: 0.9; letter-spacing: 0.06em; color: var(--white); display: block; }
+    /* POSTER-SCALE name */
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(130px, 22vw, 260px);
+      line-height: 0.82;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
     .hero-name .gold { color: var(--gold); }
     .hero-divider { width: 80px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 20px 0; }
-    .hero-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(22px, 3vw, 36px); color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
-    .hero-desc { font-size: 16px; color: var(--white-mid); max-width: 480px; line-height: 1.7; margin-bottom: 36px; font-weight: 300; }
+    .hero-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px,3vw,34px); color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 18px; }
+    .hero-desc { font-size: 16px; color: var(--white-mid); max-width: 500px; line-height: 1.7; margin-bottom: 36px; font-weight: 300; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-gold { display: inline-block; background: var(--gold); color: var(--black); padding: 14px 32px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s,transform 0.15s; }
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
@@ -102,10 +106,10 @@
     .ticker-sep { color: rgba(6,6,6,0.3); padding: 0 8px; }
     @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* STATS - light grid */
+    /* STATS — light grid */
     .stats-section { border-bottom: 1px solid rgba(6,6,6,0.1); }
     .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
-    .stat-item { padding: 40px 20px; text-align: center; border-right: 1px solid rgba(6,6,6,0.1); position: relative; }
+    .stat-item { padding: 38px 20px; text-align: center; border-right: 1px solid rgba(6,6,6,0.1); position: relative; }
     .stat-item:last-child { border-right: none; }
     .stat-item::after { content:''; position:absolute; bottom:0; left:20%; right:20%; height:2px; background:var(--gold); opacity:0.5; }
     .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: var(--gold-dark); line-height: 1; margin-bottom: 6px; letter-spacing: 0.02em; }
@@ -116,112 +120,110 @@
     .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
     .eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
-    .section-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,6vw,80px); color: var(--white); line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 20px; }
-    .section-heading span { color: var(--gold); }
-    .body-text { font-size: 15px; color: var(--white-mid); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
 
-    /* NEW MUSIC - dark grid */
+    /* MUSIC — dark grid */
     .music-section { padding: 100px 24px; }
     .music-inner { max-width: 1200px; margin: 0 auto; }
     .music-header { text-align: center; margin-bottom: 56px; }
-    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-    .music-card {
-      background: var(--dark-card); border: 1px solid var(--dark-border);
-      border-radius: 2px; padding: 0; overflow: hidden; display: flex;
-      flex-direction: column; position: relative; transition: border-color 0.25s,transform 0.25s;
-    }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,6vw,80px); line-height: 0.92; letter-spacing: 0.02em; color: var(--white); margin-top: 8px; }
+    .section-title span { color: var(--gold); }
+    .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+    .music-card { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 2px; overflow: hidden; position: relative; transition: border-color 0.25s,transform 0.25s; }
     .music-card:hover { border-color: rgba(200,164,64,0.4); transform: translateY(-3px); }
     .music-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gold); }
-    .music-card-cover {
-      height: 200px; background: linear-gradient(135deg, #1a1200, #0a0800);
-      display: flex; align-items: center; justify-content: center; position: relative;
-    }
-    .music-card-cover-label { font-family: 'Bebas Neue', sans-serif; font-size: 100px; color: rgba(200,164,64,0.08); letter-spacing: 0.04em; position: absolute; }
-    .music-card-cover-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); letter-spacing: 0.06em; position: relative; z-index: 1; text-align: center; padding: 0 20px; line-height: 1; }
-    .music-card-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-    .music-card-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-    .music-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 0.04em; line-height: 1; }
-    .music-card-desc { font-size: 13px; color: var(--white-mid); line-height: 1.6; flex: 1; }
-    .music-card-link { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--black); padding: 10px 20px; border-radius: 2px; text-decoration: none; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; align-self: flex-start; }
-    .music-card-link:hover { background: var(--gold-light); }
-
-    /* VIDEO */
-    .video-section { padding: 0 24px 80px; }
-    .video-inner { max-width: 1200px; margin: 0 auto; }
+    .music-card-cover { height: 180px; background: linear-gradient(135deg, #1a1200,#0a0800); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .music-cover-bg { font-family: 'Bebas Neue', sans-serif; font-size: 100px; color: rgba(200,164,64,0.07); letter-spacing: 0.04em; position: absolute; pointer-events: none; }
+    .music-cover-title { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--gold); letter-spacing: 0.06em; position: relative; z-index: 1; text-align: center; padding: 0 20px; line-height: 1.1; }
+    .music-card-body { padding: 22px 24px; }
+    .music-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; display: block; }
+    .music-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 0.04em; margin-bottom: 8px; line-height: 1; }
+    .music-desc { font-size: 13px; color: var(--white-mid); line-height: 1.6; margin-bottom: 16px; }
+    .music-link { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--black); padding: 9px 20px; border-radius: 2px; text-decoration: none; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+    .music-link:hover { background: var(--gold-light); }
     .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 2px; border: 1px solid var(--dark-border); }
     .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    /* PHOTO DIVIDER */
-    .photo-divider { height: 55vh; min-height: 360px; position: relative; overflow: hidden; }
-    .photo-divider-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #080600, #100c00); }
-    .photo-divider-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-    .photo-divider-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px,12vw,160px); letter-spacing: 0.08em; color: rgba(200,164,64,0.12); text-align: center; line-height: 0.9; user-select: none; }
-    .photo-divider-main { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px,8vw,100px); color: var(--gold); letter-spacing: 0.06em; text-align: center; line-height: 1; position: relative; z-index: 1; }
-    .photo-divider-sub { font-size: 13px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-align: center; margin-top: 12px; }
+    /* TEXT DIVIDER — Washed Lord style */
+    .text-divider {
+      padding: 80px 24px;
+      background: var(--dark);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .text-divider-bg {
+      position: absolute; inset: 0;
+      font-family: 'Bebas Neue', sans-serif; font-size: 200px;
+      color: rgba(200,164,64,0.04); letter-spacing: 0.06em;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; line-height: 1; white-space: nowrap;
+      overflow: hidden;
+    }
+    .text-divider-content { position: relative; z-index: 1; text-align: center; }
+    .text-divider-main { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,8vw,100px); color: var(--gold); letter-spacing: 0.06em; line-height: 0.95; }
+    .text-divider-sub { font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white-dim); margin-top: 12px; }
 
-    /* GOLD BAND - shows */
+    /* SHOWS — gold band */
     .shows-band { background: var(--gold); padding: 80px 24px; position: relative; overflow: hidden; }
-    .shows-band::before { content:'LIVE'; position:absolute; top:-40px; right:-30px; font-family:'Bebas Neue',sans-serif; font-size:280px; color:rgba(6,6,6,0.06); line-height:1; pointer-events:none; letter-spacing:0.04em; }
+    .shows-band::before { content:'LIVE'; position:absolute; top:-40px; right:-30px; font-family:'Bebas Neue',sans-serif; font-size:300px; color:rgba(6,6,6,0.06); line-height:1; pointer-events:none; letter-spacing:0.04em; }
     .shows-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-    .shows-header { margin-bottom: 40px; }
-    .shows-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px,9vw,110px); color: var(--black); line-height: 0.86; letter-spacing: 0.01em; }
-    .shows-header-sub { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(6,6,6,0.5); margin-top: 8px; }
+    .shows-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px,10vw,120px); color: var(--black); line-height: 0.86; letter-spacing: 0.01em; margin-bottom: 6px; }
+    .shows-header-sub { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(6,6,6,0.45); margin-bottom: 40px; }
     .shows-list { display: flex; flex-direction: column; gap: 2px; }
-    .show-row { background: rgba(6,6,6,0.1); border: 1px solid rgba(6,6,6,0.12); border-radius: 2px; padding: 18px 24px; display: flex; align-items: center; gap: 24px; transition: background 0.2s; }
+    .show-row { background: rgba(6,6,6,0.1); border: 1px solid rgba(6,6,6,0.12); border-radius: 2px; padding: 16px 24px; display: flex; align-items: center; gap: 24px; transition: background 0.2s; }
     .show-row:hover { background: rgba(6,6,6,0.2); }
-    .show-date { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--black); letter-spacing: 0.06em; min-width: 72px; flex-shrink: 0; line-height: 1; }
+    .show-date { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--black); letter-spacing: 0.06em; min-width: 72px; flex-shrink: 0; line-height: 1; }
     .show-info { flex: 1; }
     .show-venue { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
-    .show-location { font-size: 12px; color: rgba(6,6,6,0.55); }
+    .show-location { font-size: 12px; color: rgba(6,6,6,0.5); }
     .show-ticket { background: var(--black); color: var(--gold); padding: 8px 18px; border-radius: 2px; text-decoration: none; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
     .show-ticket:hover { background: #1a1a1a; }
 
-    /* VENTURES - dark grid */
+    /* VENTURES — light grid */
     .ventures-section { padding: 100px 24px; }
     .ventures-inner { max-width: 1200px; margin: 0 auto; }
     .ventures-header { text-align: center; margin-bottom: 56px; }
     .ventures-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .venture-card { background: var(--dark-card); border: 1px solid var(--dark-border); border-top: 2px solid var(--gold); border-radius: 2px; padding: 32px 28px; transition: border-color 0.25s,transform 0.25s; position: relative; overflow: hidden; }
-    .venture-card:hover { border-color: rgba(200,164,64,0.5); transform: translateY(-3px); }
-    .venture-card-bg { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(200,164,64,0.04); position: absolute; bottom: -10px; right: -6px; line-height: 1; letter-spacing: 0.04em; pointer-events: none; }
-    .venture-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
-    .venture-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); letter-spacing: 0.04em; margin-bottom: 10px; line-height: 1; }
-    .venture-desc { font-size: 13px; color: var(--white-mid); line-height: 1.65; margin-bottom: 16px; }
-    .venture-link { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .venture-card { background: #f0ece2; border: 1px solid rgba(6,6,6,0.1); border-top: 2px solid var(--gold-dark); border-radius: 2px; padding: 30px 26px; transition: border-color 0.25s,transform 0.25s; position: relative; overflow: hidden; }
+    .venture-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .venture-card-bg { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(200,164,64,0.08); position: absolute; bottom: -10px; right: -6px; line-height: 1; letter-spacing: 0.04em; pointer-events: none; }
+    .venture-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; display: block; }
+    .venture-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: rgba(6,6,6,0.85); letter-spacing: 0.04em; margin-bottom: 10px; line-height: 1; }
+    .venture-desc { font-size: 13px; color: rgba(6,6,6,0.6); line-height: 1.65; margin-bottom: 16px; }
+    .venture-link { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
     .venture-link:hover { gap: 10px; }
 
-    /* PODCAST - light grid */
+    /* PODCAST — dark grid */
     .podcast-section { padding: 100px 24px; }
     .podcast-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .podcast-left { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 2px; padding: 48px; position: relative; overflow: hidden; }
-    .podcast-left::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); }
-    .podcast-logo { font-family: 'Bebas Neue', sans-serif; font-size: 60px; color: var(--white); letter-spacing: 0.04em; line-height: 1; margin-bottom: 6px; }
+    .podcast-card { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 2px; padding: 44px; position: relative; overflow: hidden; }
+    .podcast-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); }
+    .podcast-logo { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: var(--white); letter-spacing: 0.04em; line-height: 1; margin-bottom: 6px; }
     .podcast-logo span { color: var(--gold); }
     .podcast-hosts { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 20px; }
     .podcast-desc { font-size: 14px; color: var(--white-mid); line-height: 1.7; margin-bottom: 24px; }
     .podcast-platforms { display: flex; flex-wrap: wrap; gap: 10px; }
     .podcast-platform { background: rgba(200,164,64,0.08); border: 1px solid rgba(200,164,64,0.2); padding: 8px 16px; border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: background 0.2s; }
     .podcast-platform:hover { background: rgba(200,164,64,0.15); }
-    .podcast-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px,5vw,68px); color: rgba(6,6,6,0.8); line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 16px; }
-    .podcast-right h2 span { color: var(--gold-dark); }
-    .podcast-right p { font-size: 15px; color: rgba(6,6,6,0.6); line-height: 1.8; margin-bottom: 24px; font-weight: 300; }
+    .podcast-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px,5vw,68px); color: var(--white); line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 16px; }
+    .podcast-right h2 span { color: var(--gold); }
+    .podcast-right p { font-size: 15px; color: var(--white-mid); line-height: 1.8; margin-bottom: 24px; font-weight: 300; }
 
-    /* CONTACT - dark grid */
-    .contact-section { padding: 80px 24px; }
-    .contact-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-    .contact-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px,5vw,68px); color: var(--white); line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 12px; }
-    .contact-left h2 span { color: var(--gold); }
-    .contact-left p { font-size: 15px; color: var(--white-mid); line-height: 1.7; font-weight: 300; max-width: 400px; }
-    .social-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .social-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--dark-card); border: 1px solid var(--dark-border); padding: 10px 18px; border-radius: 2px; color: var(--white-mid); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: border-color 0.2s,color 0.2s; }
-    .social-btn:hover { border-color: var(--gold); color: var(--gold-light); }
-    .social-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    /* CONNECT — gold band */
+    .connect-band { background: var(--gold); padding: 80px 24px; position: relative; overflow: hidden; }
+    .connect-band::before { content:'FOLLOW'; position:absolute; top:-40px; left:-30px; font-family:'Bebas Neue',sans-serif; font-size:280px; color:rgba(6,6,6,0.06); line-height:1; pointer-events:none; letter-spacing:0.04em; }
+    .connect-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .connect-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px,9vw,110px); color: var(--black); line-height: 0.86; letter-spacing: 0.01em; margin-bottom: 12px; }
+    .connect-left p { font-size: 15px; color: rgba(6,6,6,0.6); line-height: 1.7; font-weight: 300; }
+    .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .social-btn { display: flex; align-items: center; gap: 10px; background: rgba(6,6,6,0.12); border: 1px solid rgba(6,6,6,0.15); padding: 14px 18px; border-radius: 2px; color: var(--black); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .social-btn:hover { background: rgba(6,6,6,0.22); }
+    .social-btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
 
     /* FOOTER */
     footer { background: var(--black); border-top: 1px solid var(--dark-border); padding: 40px 24px 24px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--dark-border); margin-bottom: 16px; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 0.1em; }
-    .footer-tagline { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); margin-top: 2px; }
+    .footer-tagline { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); margin-top: 2px; }
     .footer-links { display: flex; gap: 20px; }
     .footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold-light); }
@@ -232,10 +234,11 @@
       .music-grid { grid-template-columns: 1fr; }
       .ventures-grid { grid-template-columns: 1fr 1fr; }
       .podcast-inner { grid-template-columns: 1fr; gap: 40px; }
+      .connect-inner { grid-template-columns: 1fr; gap: 40px; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(6,6,6,0.1); }
       .stat-item:nth-child(odd) { border-right: 1px solid rgba(6,6,6,0.1) !important; }
-      .hero { min-height: 85vh; }
+      .stat-item:nth-child(4) { border-bottom: none; }
     }
     @media (max-width: 640px) {
       .hamburger { display: flex; }
@@ -247,13 +250,16 @@
       .nav-links .nav-cta a { border: none; background: none; color: var(--gold); }
       .hero { min-height: 92vh; }
       .hero-content { padding: 0 20px 56px; }
-      .hero-name { font-size: clamp(72px,18vw,120px); }
+      .hero-name { font-size: clamp(100px,26vw,160px); }
       .hero-ctas { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .music-section,.ventures-section,.podcast-section,.contact-section { padding: 60px 20px; }
-      .shows-band { padding: 60px 20px; }
+      .music-section,.ventures-section,.podcast-section { padding: 60px 20px; }
+      .shows-band,.connect-band { padding: 60px 20px; }
       .ventures-grid { grid-template-columns: 1fr; }
       .show-row { flex-wrap: wrap; gap: 12px; }
+      .social-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .text-divider { padding: 60px 20px; }
+      .text-divider-main { font-size: clamp(44px,12vw,72px); }
     }
   </style>
 </head>
@@ -291,9 +297,9 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — poster scale, no image -->
   <section class="hero" id="home">
-    <div class="hero-bg-gradient"></div>
+    <div class="hero-glow"></div>
     <div class="hero-content">
       <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Clifford Joseph Harris Jr. · Atlanta, Georgia</span></div>
       <div class="hero-name">T.<span class="gold">I.</span></div>
@@ -312,7 +318,7 @@
     <div class="ticker-track">
       <span class="ticker-item">King of the South</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Grammy Award Winner</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Trauma Bond — New Music</span><span class="ticker-sep">✦</span>
+      <span class="ticker-item">Trauma Bond — Out Now</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Let Em Know — Out Now</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">14.7M Followers</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Grand Hustle Records</span><span class="ticker-sep">✦</span>
@@ -320,7 +326,7 @@
       <span class="ticker-item">Harris Family Store</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">King of the South</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Grammy Award Winner</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Trauma Bond — New Music</span><span class="ticker-sep">✦</span>
+      <span class="ticker-item">Trauma Bond — Out Now</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Let Em Know — Out Now</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">14.7M Followers</span><span class="ticker-sep">✦</span>
       <span class="ticker-item">Grand Hustle Records</span><span class="ticker-sep">✦</span>
@@ -329,7 +335,7 @@
     </div>
   </div>
 
-  <!-- STATS - light grid -->
+  <!-- STATS — light grid -->
   <div class="stats-section grid-light">
     <div class="stats-inner">
       <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Studio Albums</div></div>
@@ -339,62 +345,49 @@
     </div>
   </div>
 
-  <!-- NEW MUSIC - dark grid -->
+  <!-- MUSIC — dark grid -->
   <section class="music-section grid-dark" id="music">
     <div class="music-inner">
       <div class="music-header">
         <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">New Music</span><div class="eyebrow-line"></div></div>
-        <h2 class="section-heading" style="text-align:center">T.I. Is <span>Back.</span></h2>
+        <h2 class="section-title">T.I. Is <span>Back.</span></h2>
       </div>
       <div class="music-grid">
         <div class="music-card">
-          <div class="music-card-cover">
-            <div class="music-card-cover-label">TB</div>
-            <div class="music-card-cover-title">Trauma Bond</div>
-          </div>
+          <div class="music-card-cover"><div class="music-cover-bg">TB</div><div class="music-cover-title">Trauma Bond</div></div>
           <div class="music-card-body">
-            <span class="music-card-tag">Latest Release</span>
-            <div class="music-card-name">Trauma Bond</div>
-            <p class="music-card-desc">T.I.'s latest release — a raw, introspective track that explores the emotional bonds shaped by pain, loyalty, and survival. Available now on all platforms.</p>
-            <a href="https://music.empi.re/traumabond" target="_blank" class="music-card-link">Stream Now →</a>
+            <span class="music-tag">Latest Release</span>
+            <div class="music-name">Trauma Bond</div>
+            <p class="music-desc">T.I.'s latest release — raw and introspective, exploring the emotional bonds shaped by pain, loyalty, and survival.</p>
+            <a href="https://music.empi.re/traumabond" target="_blank" class="music-link">Stream Now →</a>
           </div>
         </div>
         <div class="music-card">
-          <div class="music-card-cover">
-            <div class="music-card-cover-label">LEK</div>
-            <div class="music-card-cover-title">Let Em Know</div>
-          </div>
+          <div class="music-card-cover"><div class="music-cover-bg">LEK</div><div class="music-cover-title">Let Em Know</div></div>
           <div class="music-card-body">
-            <span class="music-card-tag">Also Out Now</span>
-            <div class="music-card-name">Let Em Know</div>
-            <p class="music-card-desc">The King makes his statement loud and clear. "Let Em Know" is T.I. at his most confident — sharp lyricism, signature swagger, and a message for anyone paying attention.</p>
-            <a href="https://music.empi.re/letemknowti" target="_blank" class="music-card-link">Stream Now →</a>
+            <span class="music-tag">Also Out Now</span>
+            <div class="music-name">Let Em Know</div>
+            <p class="music-desc">The King makes his statement clear. Sharp lyricism, signature swagger, and a message for anyone paying attention.</p>
+            <a href="https://music.empi.re/letemknowti" target="_blank" class="music-link">Stream Now →</a>
           </div>
         </div>
       </div>
-
-      <!-- Video -->
-      <div class="video-section" style="padding: 0; margin-top: 20px;">
-        <div class="video-inner">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/sDqEXirnuy4" title="T.I. Music Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/sDqEXirnuy4" title="T.I." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <!-- PHOTO DIVIDER -->
-  <div class="photo-divider">
-    <div class="photo-divider-bg"></div>
-    <div class="photo-divider-overlay" style="flex-direction:column; gap:12px;">
-      <div class="photo-divider-text" style="position:absolute;">KING · KING · KING · KING</div>
-      <div class="photo-divider-main">King of<br>the South.</div>
-      <div class="photo-divider-sub">T.I. willed his superstar status into existence</div>
+  <!-- TEXT DIVIDER -->
+  <div class="text-divider">
+    <div class="text-divider-bg">ATLANTA · ATLANTA · ATLANTA</div>
+    <div class="text-divider-content">
+      <div class="text-divider-main">King of<br>the South.</div>
+      <div class="text-divider-sub">T.I. willed his superstar status into existence</div>
     </div>
   </div>
 
-  <!-- SHOWS - gold band -->
+  <!-- SHOWS — gold band -->
   <section class="shows-band" id="shows">
     <div class="shows-inner">
       <div class="shows-header">
@@ -415,64 +408,31 @@
     </div>
   </section>
 
-  <!-- VENTURES - dark grid -->
-  <section class="ventures-section grid-dark" id="ventures">
+  <!-- VENTURES — light grid -->
+  <section class="ventures-section grid-light" id="ventures">
     <div class="ventures-inner">
       <div class="ventures-header">
-        <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">Beyond the Music</span><div class="eyebrow-line"></div></div>
-        <h2 class="section-heading" style="text-align:center">The <span>Empire.</span></h2>
+        <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line" style="background:var(--gold-dark)"></div><span class="eyebrow-text" style="color:var(--gold-dark)">Beyond the Music</span><div class="eyebrow-line" style="background:var(--gold-dark)"></div></div>
+        <h2 class="section-title" style="color:rgba(6,6,6,0.85)">The <span style="color:var(--gold-dark)">Empire.</span></h2>
       </div>
       <div class="ventures-grid">
-        <div class="venture-card">
-          <div class="venture-card-bg">GH</div>
-          <span class="venture-tag">Record Label</span>
-          <div class="venture-name">Grand Hustle Records</div>
-          <p class="venture-desc">Founded by T.I. in 2003, Grand Hustle is the Atlanta-based label that launched careers and helped define the sound of Southern hip-hop for two decades.</p>
-        </div>
-        <div class="venture-card">
-          <div class="venture-card-bg">HFS</div>
-          <span class="venture-tag">Family Brand</span>
-          <div class="venture-name">Harris Family Store</div>
-          <p class="venture-desc">Official merchandise and lifestyle products from the Harris family. Wear the brand, support the movement.</p>
-          <a href="https://theharrisfamilystore.com" target="_blank" class="venture-link">Shop Now →</a>
-        </div>
-        <div class="venture-card">
-          <div class="venture-card-bg">KDS</div>
-          <span class="venture-tag">Brand</span>
-          <div class="venture-name">King of Da South</div>
-          <p class="venture-desc">T.I. willed his superstar status into existence in the early 2000s, claiming the Southern rap throne with legendary predecessors UGK, OutKast, and Scarface backing the claim.</p>
-          <a href="#music" class="venture-link">Listen Now →</a>
-        </div>
-        <div class="venture-card">
-          <div class="venture-card-bg">UOE</div>
-          <span class="venture-tag">Social Justice</span>
-          <div class="venture-name">Us or Else</div>
-          <p class="venture-desc">T.I.'s powerful social justice platform and mixtape series addressing police brutality, racial inequality, and systemic injustice. The Lloyd's of London petition extended this advocacy globally.</p>
-        </div>
-        <div class="venture-card">
-          <div class="venture-card-bg">ACT</div>
-          <span class="venture-tag">Film & TV</span>
-          <div class="venture-name">Actor & Producer</div>
-          <p class="venture-desc">Featured in ATL, American Gangster (TV series), Ant-Man, Get Hard, Takers, and more. IMDb credits spanning two decades in Hollywood alongside his music career.</p>
-        </div>
-        <div class="venture-card">
-          <div class="venture-card-bg">EP</div>
-          <span class="venture-tag">Media</span>
-          <div class="venture-name">Expeditiously Podcast</div>
-          <p class="venture-desc">The Expeditiously podcast with T.I. — unfiltered conversations on culture, business, life, and everything in between. Available on all major podcast platforms.</p>
-          <a href="https://linktr.ee/expeditiouslypodcast" target="_blank" class="venture-link">Listen Now →</a>
-        </div>
+        <div class="venture-card"><div class="venture-card-bg">GH</div><span class="venture-tag">Record Label</span><div class="venture-name">Grand Hustle Records</div><p class="venture-desc">Founded in 2003, Grand Hustle is the Atlanta-based label that launched careers and helped define the sound of Southern hip-hop for two decades.</p></div>
+        <div class="venture-card"><div class="venture-card-bg">HFS</div><span class="venture-tag">Family Brand</span><div class="venture-name">Harris Family Store</div><p class="venture-desc">Official merchandise and lifestyle products from the Harris family. Wear the brand, support the movement.</p><a href="https://theharrisfamilystore.com" target="_blank" class="venture-link">Shop Now →</a></div>
+        <div class="venture-card"><div class="venture-card-bg">KDS</div><span class="venture-tag">Brand</span><div class="venture-name">King of Da South</div><p class="venture-desc">T.I. willed his superstar status into existence in the early 2000s, claiming the Southern rap throne with legendary predecessors UGK, OutKast, and Scarface backing the claim.</p></div>
+        <div class="venture-card"><div class="venture-card-bg">UOE</div><span class="venture-tag">Social Justice</span><div class="venture-name">Us or Else</div><p class="venture-desc">T.I.'s powerful social justice platform addressing police brutality, racial inequality, and systemic injustice. The Lloyd's of London petition extended this advocacy globally.</p></div>
+        <div class="venture-card"><div class="venture-card-bg">ACT</div><span class="venture-tag">Film &amp; TV</span><div class="venture-name">Actor &amp; Producer</div><p class="venture-desc">ATL, American Gangster (TV), Ant-Man, Get Hard, Takers — two decades of Hollywood credits alongside a groundbreaking music career.</p></div>
+        <div class="venture-card"><div class="venture-card-bg">EP</div><span class="venture-tag">Media</span><div class="venture-name">Expeditiously Podcast</div><p class="venture-desc">Unfiltered conversations on culture, business, life, and everything in between. Available on all major podcast platforms.</p><a href="https://linktr.ee/expeditiouslypodcast" target="_blank" class="venture-link">Listen Now →</a></div>
       </div>
     </div>
   </section>
 
-  <!-- PODCAST - light grid -->
-  <section class="podcast-section grid-light" id="podcast">
+  <!-- PODCAST — dark grid -->
+  <section class="podcast-section grid-dark" id="podcast">
     <div class="podcast-inner">
-      <div class="podcast-left">
+      <div class="podcast-card">
         <div class="podcast-logo">Exped<span>itiously</span></div>
         <div class="podcast-hosts">Hosted by T.I.</div>
-        <p class="podcast-desc">Unfiltered conversations on culture, music, business, social justice, and life. T.I. brings the same directness and wit that made him one of hip-hop's sharpest voices — to the podcast format.</p>
+        <p class="podcast-desc">Unfiltered conversations on culture, music, business, and social justice. T.I. brings the same directness and wit to the podcast format.</p>
         <div class="podcast-platforms">
           <a href="https://linktr.ee/expeditiouslypodcast" target="_blank" class="podcast-platform">All Episodes</a>
           <a href="https://open.spotify.com" target="_blank" class="podcast-platform">Spotify</a>
@@ -480,41 +440,38 @@
         </div>
       </div>
       <div class="podcast-right">
-        <div class="eyebrow"><div class="eyebrow-line" style="background:var(--gold-dark)"></div><span class="eyebrow-text" style="color:var(--gold-dark)">The Podcast</span></div>
-        <h2>Expeditiously <span>with T.I.</span></h2>
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">The Podcast</span></div>
+        <h2>Expeditiously<br>with <span>T.I.</span></h2>
         <p>Real conversations. No filter. From the King of the South himself — on everything that matters.</p>
         <a href="https://linktr.ee/expeditiouslypodcast" target="_blank" class="btn-gold" style="display:inline-block">Listen to the Podcast</a>
       </div>
     </div>
   </section>
 
-  <!-- CONNECT - dark grid -->
-  <section class="contact-section grid-dark" id="connect">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Stay Connected</span></div>
-        <h2>Follow the <span>King.</span></h2>
-        <p>Stay up to date on new music, shows, ventures, and everything T.I. Follow across all platforms.</p>
+  <!-- CONNECT — second gold band -->
+  <section class="connect-band" id="connect">
+    <div class="connect-inner">
+      <div class="connect-left">
+        <h2>Follow<br>the King.</h2>
+        <p>Stay up to date on new music, shows, ventures, and everything T.I. across all platforms.</p>
       </div>
-      <div>
-        <div class="social-row">
-          <a href="https://www.instagram.com/troubleman31/" target="_blank" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            Instagram
-          </a>
-          <a href="https://twitter.com/Tip" target="_blank" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            Twitter / X
-          </a>
-          <a href="https://www.facebook.com/TI" target="_blank" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Facebook
-          </a>
-          <a href="https://www.youtube.com/@TIOFFICIAL" target="_blank" class="social-btn">
-            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            YouTube
-          </a>
-        </div>
+      <div class="social-grid">
+        <a href="https://www.instagram.com/troubleman31/" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+        <a href="https://twitter.com/Tip" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter / X
+        </a>
+        <a href="https://www.facebook.com/TI" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.youtube.com/@TIOFFICIAL" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
       </div>
     </div>
   </section>
