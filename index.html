@@ -69,29 +69,43 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* HERO — Washed Lord poster style */
+    /* HERO — Ben Baller style: full photo + poster text overlay */
     .hero { min-height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; background: var(--black); }
-    .hero-glow {
-      position: absolute; inset: 0; pointer-events: none;
+    .hero-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse at 75% 45%, rgba(200,164,64,0.09) 0%, transparent 55%),
-        radial-gradient(ellipse at 10% 70%, rgba(200,164,64,0.05) 0%, transparent 45%);
+        linear-gradient(to right, rgba(6,6,6,0.85) 0%, rgba(6,6,6,0.4) 50%, rgba(6,6,6,0.6) 100%),
+        linear-gradient(to top, rgba(6,6,6,1) 0%, rgba(6,6,6,0) 45%);
+      z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; }
-    .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
     .hero-eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
     .hero-eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
-    /* POSTER-SCALE name */
+    /* POSTER-SCALE — "KING OF THE SOUTH" fills the frame */
     .hero-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(130px, 22vw, 260px);
-      line-height: 0.82;
-      letter-spacing: 0.04em;
+      font-size: clamp(72px, 11vw, 140px);
+      line-height: 0.88;
+      letter-spacing: 0.03em;
       color: var(--white);
+      margin-bottom: 4px;
     }
-    .hero-name .gold { color: var(--gold); }
+    .hero-name-ti {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
     .hero-divider { width: 80px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 20px 0; }
-    .hero-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px,3vw,34px); color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 18px; }
     .hero-desc { font-size: 16px; color: var(--white-mid); max-width: 500px; line-height: 1.7; margin-bottom: 36px; font-weight: 300; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-gold { display: inline-block; background: var(--gold); color: var(--black); padding: 14px 32px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s,transform 0.15s; }
@@ -248,7 +262,8 @@
       .nav-links li { width: 100%; }
       .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--dark-border); font-size: 13px; }
       .nav-links .nav-cta a { border: none; background: none; color: var(--gold); }
-      .hero { min-height: 92vh; }
+      .hero { min-height: 95vh; }
+      .hero-photo { object-position: 70% top; }
       .hero-content { padding: 0 20px 56px; }
       .hero-name { font-size: clamp(100px,26vw,160px); }
       .hero-ctas { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -297,14 +312,17 @@
     </div>
   </nav>
 
-  <!-- HERO — poster scale, no image -->
+  <!-- HERO — Ben Baller style: his photo + poster text -->
   <section class="hero" id="home">
-    <div class="hero-glow"></div>
+    <img class="hero-photo"
+      src="https://images.squarespace-cdn.com/content/v1/5f47ccd3b7029f5804b4c063/15e24e85-ffc0-4362-8db9-e6e10f091336/T.I.+King+Of+The+South+1.png"
+      alt="T.I." />
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Clifford Joseph Harris Jr. · Atlanta, Georgia</span></div>
-      <div class="hero-name">T.<span class="gold">I.</span></div>
+      <span class="hero-name-ti">T.I.</span>
+      <div class="hero-name">King of<br>the South.</div>
       <div class="hero-divider"></div>
-      <div class="hero-sub">King of the South</div>
       <p class="hero-desc">Grammy Award–winning rapper. Actor. Entrepreneur. Founder of Grand Hustle Records. The voice that defined a generation of Atlanta hip-hop — and never stopped building.</p>
       <div class="hero-ctas">
         <a href="https://music.empi.re/traumabond" target="_blank" class="btn-gold">Trauma Bond — Out Now</a>
