@@ -82,22 +82,24 @@
       padding-right: 80px;
     }
     .hero-img {
-      height: 92vh; max-height: 900px; object-fit: contain;
-      object-position: bottom; filter: drop-shadow(-40px 0 80px rgba(200,164,64,0.15));
-      opacity: 0.9;
+      height: 88vh; max-height: 860px; object-fit: contain;
+      object-position: bottom;
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 60px rgba(200,164,64,0.2));
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(6,6,6,1) 25%, rgba(6,6,6,0.7) 55%, rgba(6,6,6,0.1) 100%),
-                  linear-gradient(to top, rgba(6,6,6,1) 0%, transparent 30%);
+      background: linear-gradient(to right, rgba(6,6,6,0.98) 28%, rgba(6,6,6,0.5) 55%, rgba(6,6,6,0) 100%),
+                  linear-gradient(to top, rgba(6,6,6,1) 0%, transparent 25%);
       z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
     .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
     .hero-eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
     .hero-eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
-    .hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(120px, 20vw, 220px); line-height: 0.82; letter-spacing: 0.04em; color: var(--white); }
-    .hero-name .gold { color: var(--gold); display: block; }
+    .hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 14vw, 160px); line-height: 0.9; letter-spacing: 0.06em; color: var(--white); display: block; }
+    .hero-name .gold { color: var(--gold); }
     .hero-divider { width: 80px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 20px 0; }
     .hero-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(22px, 3vw, 36px); color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
     .hero-desc { font-size: 16px; color: var(--white-mid); max-width: 480px; line-height: 1.7; margin-bottom: 36px; font-weight: 300; }
@@ -259,7 +261,7 @@
       .nav-links .nav-cta a { border: none; background: none; color: var(--gold); }
       .hero { min-height: 92vh; }
       .hero-content { padding: 0 20px 56px; }
-      .hero-name { font-size: clamp(100px,26vw,160px); }
+      .hero-name { font-size: clamp(72px,18vw,120px); }
       .hero-ctas { flex-direction: column; align-items: flex-start; gap: 12px; }
       .music-section,.ventures-section,.podcast-section,.contact-section { padding: 60px 20px; }
       .shows-band { padding: 60px 20px; }
@@ -273,7 +275,7 @@
 
   <!-- BANNER -->
   <div class="outreach-banner">
-    <span>T.I. — your site wasn't loading. I put together this concept. Let me know what you think.</span>
+    <span>T.I. — I put this together for you. If you like it it's yours, no strings attached. Let me know what you think.</span>
     <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
   </div>
 
@@ -314,10 +316,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Clifford Joseph Harris Jr. · Atlanta, Georgia</span></div>
-      <div class="hero-name">
-        <span>T.</span>
-        <span class="gold">I.</span>
-      </div>
+      <div class="hero-name">T.<span class="gold">I.</span></div>
       <div class="hero-divider"></div>
       <div class="hero-sub">King of the South</div>
       <p class="hero-desc">Grammy Award–winning rapper. Actor. Entrepreneur. Founder of Grand Hustle Records. The voice that defined a generation of Atlanta hip-hop — and never stopped building.</p>
