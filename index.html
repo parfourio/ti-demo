@@ -157,24 +157,29 @@
     .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 2px; border: 1px solid var(--dark-border); }
     .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    /* TEXT DIVIDER — Washed Lord style */
-    .text-divider {
-      padding: 80px 24px;
-      background: var(--dark);
+    /* PHOTO DIVIDER — Washed Lord style */
+    .photo-divider {
+      height: 55vh; min-height: 380px;
       position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
     }
-    .text-divider-bg {
+    .photo-divider img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+    }
+    .photo-divider-overlay {
       position: absolute; inset: 0;
-      font-family: 'Bebas Neue', sans-serif; font-size: 200px;
-      color: rgba(200,164,64,0.04); letter-spacing: 0.06em;
+      background:
+        linear-gradient(to bottom, rgba(6,6,6,0.55) 0%, rgba(6,6,6,0.1) 40%, rgba(6,6,6,0.1) 60%, rgba(6,6,6,0.7) 100%);
       display: flex; align-items: center; justify-content: center;
-      pointer-events: none; line-height: 1; white-space: nowrap;
-      overflow: hidden;
     }
-    .text-divider-content { position: relative; z-index: 1; text-align: center; }
-    .text-divider-main { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,8vw,100px); color: var(--gold); letter-spacing: 0.06em; line-height: 0.95; }
-    .text-divider-sub { font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white-dim); margin-top: 12px; }
+    .photo-divider-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px,9vw,110px);
+      color: #fff; text-align: center; line-height: 0.95;
+      letter-spacing: 0.06em;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+    }
+    .photo-divider-text span { color: var(--gold); display: block; }
 
     /* SHOWS — gold band */
     .shows-band { background: var(--gold); padding: 80px 24px; position: relative; overflow: hidden; }
@@ -273,8 +278,8 @@
       .show-row { flex-wrap: wrap; gap: 12px; }
       .social-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .text-divider { padding: 60px 20px; }
-      .text-divider-main { font-size: clamp(44px,12vw,72px); }
+      .photo-divider { height: 42vh; min-height: 260px; }
+      .photo-divider-text { font-size: clamp(44px,12vw,72px); }
     }
   </style>
 </head>
@@ -396,12 +401,13 @@
     </div>
   </section>
 
-  <!-- TEXT DIVIDER -->
-  <div class="text-divider">
-    <div class="text-divider-bg">ATLANTA · ATLANTA · ATLANTA</div>
-    <div class="text-divider-content">
-      <div class="text-divider-main">King of<br>the South.</div>
-      <div class="text-divider-sub">T.I. willed his superstar status into existence</div>
+  <!-- PHOTO DIVIDER — Washed Lord style -->
+  <div class="photo-divider">
+    <img src="https://images.squarespace-cdn.com/content/v1/5f47ccd3b7029f5804b4c063/31f47a77-074b-43b1-bbaa-f2f1825afd13/1478x646ea-60.jpg" alt="T.I." />
+    <div class="photo-divider-overlay">
+      <div class="photo-divider-text">
+        Atlanta.<br><span>Never Fold.</span>
+      </div>
     </div>
   </div>
 
